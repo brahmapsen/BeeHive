@@ -3,6 +3,7 @@ import Layout from "@components/Layout"; // Layout wrapper
 import { web3 } from "@containers/index"; // Web3 container
 import styles from "@styles/pages/Create.module.scss"; // Page styles
 import { useRouter } from "next/router"; // Router 
+import axios from "axios"; // axios requests
 
 //Ceramic imports
 import CeramicClient from '@ceramicnetwork/http-client';
@@ -31,6 +32,8 @@ const schema = {
   "required": ["message", "title"]
 }
 
+//const twitterUID = process.env.TWITTER_ID;
+
 export default function bio() {
   const {  address, web3Provider } = web3.useContainer();
   const router = useRouter(); // Router navigation
@@ -45,9 +48,10 @@ export default function bio() {
   const [approval, setApproval] = useState(null);
   const [rating, setRating] = useState(null);
   const [profileMessage, setProfileMessage] = useState(null)
+  const [twitterMention, setTwitterMention] = useState(false);
   
   // useEffect(() => {
-  //   IDConnect();
+  //   socialWebData();
   // }, [] );
 
   const IDConnect = async () => {
@@ -107,6 +111,22 @@ export default function bio() {
     //userIDX.set('basicProfile', {name, description})
   }
 
+  const socialWebData = async () => {
+    console.log('call Twitter...')
+    const _result = await axios.post("/api/tweet", {});
+    console.log("Result: ", _result);
+    //console.log(" Data: ", _result.data.data[0].id);
+    const _data = _result.data.data;
+    console.log("twitter Mention: ", twitterMention, address);
+    _data.map( (row) => { 
+      row.text == address 
+               ? setTwitterMention(true)
+               : console.log("Id:", row.id,  " Text: ", row.text);
+    })
+    console.log("twitter Mention-: ", twitterMention);
+  }
+
+
   return (
     <Layout>
       <div>
@@ -126,9 +146,12 @@ export default function bio() {
           <label htmlFor="Approval"><b>Status </b> </label>  &nbsp;&nbsp;
           <input id="approval" type="text" value={"Project Completed"} disabled/>
         </div>
+        <br/>
         <div>
-          <label htmlFor="Rating"><b>Reputation Index </b></label>  &nbsp;&nbsp;
-          <input id="rating" type="text" value={rating} disabled/>
+          <label htmlFor="Rating"><b>Reputation Index </b></label> 
+          <br/>  &nbsp;&nbsp;
+          <label htmlFor="Twitter"><b>Twitter Mention </b></label> &nbsp;&nbsp;
+          <input id="twitter-ch" type="checkbox" checked={twitterMention} disabled/>
         </div>
         <br/>
         <div>
@@ -136,9 +159,9 @@ export default function bio() {
         </div>
         <br/>
         <div>
-          &nbsp;&nbsp;
-          <button onClick={createProfile} className="btn btn-outline-warning">
-            <b>Create/Update Profile</b>
+          &nbsp;&nbsp; &nbsp;&nbsp;
+          <button onClick={socialWebData} className="btn btn-outline-warning">
+            <b>Social Web Profile</b>
           </button>  &nbsp;&nbsp;
           <button onClick={IDConnect} className="btn btn-outline-warning">
             <b>Show Profile</b>
