@@ -7,8 +7,7 @@ import styles from "@styles/components/Header.module.scss"; // Component styles
 // Header
 export default function Header() {
   const [loading, setLoading] = useState(false); // Loading state
-  const [ensName, setEnsName] = useState('community.eth');
-  const { address, web3Provider, authenticate } = web3.useContainer(); // Global state
+  const { address, ensName, web3Provider, authenticate } = web3.useContainer(); // Global state
   
   const authenticateWithLoading = async () => {
     setLoading(true); // Toggle loading
@@ -32,7 +31,7 @@ export default function Header() {
       <div className={styles.header__logo}>
         <Link href="/">
           <a>
-            <img src="/cert.png" alt="community" />
+            <img src="/beehive.jpeg" alt="beehive" />
           </a>
         </Link>
       </div>
@@ -44,15 +43,19 @@ export default function Header() {
           <>
             <Link href={`/profile/${address}`}>
               <a className={styles.header__menu_button_black}><h6><b>
-                {"Account " + address.substr(0, 3) + "..." + address.slice(address.length - 3)}
+                { ensName + " " + address.substr(0, 3) + "..." + address.slice(address.length - 3)}
+                
                 </b></h6>
               </a>
             </Link>
-            <Link href={`/auction`}>
-              <a className={styles.header__menu_button_black}><h6><b>Marketplace</b></h6></a>
+            <Link href={`/defi`}>
+              <a className={styles.header__menu_button_black}><h6><b>GrowFund</b></h6></a>
             </Link>
             <Link href={`/funding`}>
               <a className={styles.header__menu_button_black}><h6><b>Fund</b></h6></a>
+            </Link>
+            <Link href={`/auction`}>
+              <a className={styles.header__menu_button_black}><h6><b>BeeHive </b></h6></a>
             </Link>
             <Link href={`/bio`}>
               <a className={styles.header__menu_button_black}><h6><b>Validate</b></h6></a>
@@ -60,7 +63,6 @@ export default function Header() {
             <Link href={`/create`}>
               <a className={styles.header__menu_button_black}><h6><b>Reward</b></h6></a>
             </Link>
-            
             <Link href={`/list`}>
               <a className={styles.header__menu_button_black}><h6><b>Awards</b></h6>
               </a>

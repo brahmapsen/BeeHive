@@ -8,40 +8,32 @@ export default function Home() {
     <Layout>
       <div className={styles.container}>
         <Head>
-            <title>Community</title>
+            <title>BeeHive Community</title>
             <meta name="description" content="A Decentralized application" />
-            <link rel="icon" href="/cert.png" />
+            <link rel="icon" href="/beehive.jpeg" />
         </Head>
         <main className={styles.main}>
             <h2 className={styles.title}>
-               <a href="http://localhost:3000">Community - making an Impact!</a>
+               <a href="http://localhost:3000">BeeHive - a community for public good</a>
             </h2>
             <p className={styles.description}>
               Build a community with funding for Impactful activities {' '}
-              <code className={styles.code}>add certificates of achievement</code>
+              <code className={styles.code}>add certificate of achievements</code>
             </p>
 
             <div className={styles.grid}>
-              
               <a href="http://localhost:3000/create" className={styles.card}>
-                <h2>Rewards for good work done &rarr;</h2>
+                <h4>Rewards for good work done &rarr;</h4>
               </a>
               <a href="http://localhost:3000/bio" className={styles.card}>
                 <h4>Validate Achievements &rarr;</h4>
-                <p>Digital ID, Personal bio, Reputation index crowd sourced.</p>
               </a>
               <a href="http://localhost:3000/mktplace" className={styles.card}>
-                <h2>Marketplace to auction NFTs&rarr;</h2>
+                <h4>Marketplace to auction NFTs&rarr;</h4>
               </a>
               <a href="http://localhost:3000/funding"  className={styles.card}  >
-                <h4>Fund and Grow &rarr;</h4>
-                <p>
-                  Funding for the good work and grow with DeFi.
-                </p>
+                <h4>Funding & Growth with DeFi &rarr;</h4>
               </a>
-              <span>
-                <Image src="/community.jpg" alt="NFT value creation" width={550} height={400} />
-              </span>
             </div>
         </main>
 
@@ -49,10 +41,16 @@ export default function Home() {
             <a href="http://localhost:3000/"  target="_blank"  rel="noopener noreferrer"  >
               Powered by{' '}
               <span className={styles.logo}>
+                <Image src="/superfluid.png" alt="Superfluid" width={180} height={46}/>
                 <Image src="/zora.png" alt="ZORA" width={82} height={46}/>
+                <Image src="/compound.png" alt="ZORA" width={82} height={46}/>&nbsp;&nbsp;
+                <Image src="/chainlink.jpeg" alt="ZORA" width={82} height={46}/>&nbsp;&nbsp;
                 <Image src="/nft-storage.jpeg" alt="IPFS Filecoin NFT.Storage" width={72} height={46}/>
+                &nbsp;&nbsp;
+                <Image src="/ipfs.png" alt="ENS" width={62} height={46}/>  &nbsp;&nbsp;
+                <Image src="/ens.png" alt="ENS" width={62} height={46}/> 
                 <Image src="/ceramic.png" alt="Ceramics" width={82} height={46}/>
-                <Image src="/superfluid.png" alt="Superfluid" width={200} height={46}/>
+                
               </span>
             </a>
         </footer>

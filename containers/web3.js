@@ -32,6 +32,7 @@ import {
     const [modal, setModal] = useState(null); //Web3Modal
     const [address, setAddress] = useState(null); //ETH address
     const [web3Provider, setWeb3Provider] = useState(null);
+    const [ensName, setEnsName] = useState('.eth');
     
     const nftPortKey = '73fe9e20-7dd1-41cd-9277-508639f27126';
     
@@ -73,6 +74,10 @@ import {
       // Collect address
       const address = await signer.getAddress();
       setAddress(address);
+
+      const ensName = await provider.lookupAddress(address);
+      setEnsName(ensName);
+      console.log('ENS Name:' + ensName);
 
       //Get DAO contract
       const communityDAOContract = new ethers.Contract(
@@ -178,6 +183,7 @@ import {
     return {
       address,
       web3Provider,
+      ensName,
       authenticate,
       mintMedia
     };

@@ -15,6 +15,10 @@ async function main() {
     const dao = new ethers.Contract(communityDAOContractAddress, daoAbi, signer);
     const result = await dao.getCommunityName();
     console.log(' Results: ' + result)
+
+    let _res = dao.checkSocialApp("0x343712AbA29A21c9eB50Cc98D556028485146913","twitter")
+    _res = await dao.requestVolumeData();
+    console.log('Volume Data:' + _res);
 }
 
 main()

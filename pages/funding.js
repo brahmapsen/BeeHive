@@ -160,15 +160,13 @@ export default function funding() {
       { !address ? ( <div> <p>Please authenticate</p></div>) : 
         (
           <div className="form-group">
-              <h2>Retroactive Funding</h2>
-              <br/> <br/>
               <div className={styles.create}>
                   <div className={styles.create__grid}>
                     {/* Creation form */}
                     <div className={styles.create__grid_left}>
-                      <h2>Certifications of Impact</h2>
+                      <h2>Funding for Public Good</h2>
                       <br/>
-                      <label htmlFor="fundingRecipient">Enter a funding Recipient: </label>  &nbsp;&nbsp;
+                      <label htmlFor="fundingRecipient">Enter funding Recipient: </label>  &nbsp;&nbsp;
                       <input
                           id="fundingRecipient"
                           type="text"
@@ -190,7 +188,7 @@ export default function funding() {
                         <div className={styles.funding__head}>
                           <img src={makeBlockie(fundingRecipient)} alt="Avatar" />
                                       {fundingRecipient}
-                          <h2>Certifications and Awards</h2>
+                          <h2>Awards</h2>
                         </div>
                         </div>
                         )
