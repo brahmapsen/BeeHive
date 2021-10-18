@@ -14,7 +14,7 @@ export default function Create() {
   const [upload, setUpload] = useState(null); // Uploaded file
   const [uploadName, setUploadName] = useState(""); // Uploaded file name
   const [uploadText, setUploadText] = useState(null); // Text content
-  const [description, setDescription] = useState("Project completion in time."); // Property description
+  const [description, setDescription] = useState("Award for completing the task."); // Property description
   // Global state
   const { address, authenticate, mintMedia } = web3.useContainer();
 
@@ -54,7 +54,7 @@ export default function Create() {
             </div>
         ) : (
             <div className="form-group">
-                <h2>UPLOAD NFT</h2>
+                <h2>UPLOAD Certificate (NFT) </h2>
                 <div className={styles.create__upload}>
                     <div>
                         <p>Upload Image</p>

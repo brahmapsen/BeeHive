@@ -101,8 +101,13 @@ const RenderOwnedList = ({ account }: { account: string }) => {
     );
   }
 
-  return data.tokens.map((token: any) => {
+  return data.tokens.reverse().map((token: any) => {
     const tokenInfo = FetchStaticData.getIndexerServerTokenInfo(token);
+
+    //!tokenInfo && !tokenInfo.metadata && 
+          //  tokenInfo.metadata.name+'' === 'Certification of Excellence' &&
+    console.log("Item: ", tokenInfo.metadata);
+
     return (
       <NFTPreview
         id={tokenInfo.tokenId}
